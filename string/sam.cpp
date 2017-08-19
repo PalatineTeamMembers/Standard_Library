@@ -1,0 +1,2 @@
+struct Suffix_Automation {
+}
