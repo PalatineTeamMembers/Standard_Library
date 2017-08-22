@@ -1,2 +1,24 @@
 struct Suffix_Automation {
-}
+	struct node {
+		int son[26], pre, len;
+	}a[N << 1];
+	int tail, tot;
+	void insert(int k) {
+		int np = ++tot, nq, p, q;
+		a[np].len = a[tail].len + 1;
+		for (p = tail; p && !a[p].son[k]; p = a[p].pre) a[p].son[k] = np;
+		if (!a[p].son[k]) {
+			a[p].son[k] = np;
+			a[np].pre = p;
+		} else {
+			if (a[q = a[p].son[k]].len == a[p].len + 1) a[np].pre = q;
+			else {
+				a[nq = ++tot] = a[q];
+				a[nq].len = a[p].len + 1;
+				a[np].pre = a[q].pre = nq;
+				for (;a[p].son[k] == q; p = a[p].pre) a[p].son[k] = nq;
+			}
+		}
+		tail = np;
+	}
+}sam;
