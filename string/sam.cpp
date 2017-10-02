@@ -46,7 +46,7 @@ struct Generalized_Suffix_Automation {
 			for (p = tail; p && !a[p].son[k]; p = a[p].pre) a[p].son[k] = np;
 			if (!a[p].son[k]) a[p].son[k] = np;
 			else {
-				if (a[nq = a[p].son[k]].len == a[p].len + 1) a[np].pre = q;
+				if (a[q = a[p].son[k]].len == a[p].len + 1) a[np].pre = q;
 				else {
 					a[nq = ++tot] = a[q];
 					a[q].pre = a[np].pre = nq;
