@@ -30,5 +30,6 @@ struct Palindrome_Automation {
 			}
 			if (!p) a[tail].pnt = root;
 		}
+		a[tail].cnt++;
 	}
 }pam;

@@ -29,7 +29,7 @@ void update(int x) {
 
 int _index, vis[N];
 void dfs(int x) {
-	if (!x) retrn;
+	if (!x) return;
 	vis[x] = _index;
 	dfs(tr[x].l);
 	dfs(tr[x].r);

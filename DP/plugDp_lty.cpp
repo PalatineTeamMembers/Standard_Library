@@ -1,4 +1,8 @@
 int idx;
+int dp[2][MOD];
+int state[2][MOD], total[2], bit[M];
+int n, m;
+int data[N][M];
 namespace Hash_System {
 	int head[MOD], other[N], edge[N], tot;
 	inline void update(int s, int num) {
@@ -34,6 +38,9 @@ inline int modify(int x, int j, int a, int b) {
 
 int main() {
 	int now, num, right, up, nxt;
+	
+	scanf("%d%d", &n, &m);
+	
 	for (int i = 1; i <= m; ++i) bit[i] = i << 1;
 	
 	total[idx] = 1;

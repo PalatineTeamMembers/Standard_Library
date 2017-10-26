@@ -44,7 +44,7 @@ struct LinkCutTree {
 	}
 	void splay(int x) {
 		path(x);
-		while (!tr[x].isroot) {
+		while (!tr[x].isRoot) {
 			int y = tr[x].pnt;
 			if (tr[y].isRoot) rotate(x, tr[y].ch[0] == x);
 			else {
