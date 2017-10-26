@@ -32,8 +32,7 @@ struct Generalized_Suffix_Automation {
 	void insert(int k) {
 		int q, nq, p, np;
 		if (a[tail].son[k]) {
-			q = a[tail].son[k];
-			if (a[q].len == a[tail].len + 1) tail = a[tail].son[k];
+			if (a[q = a[tail].son[k]].len == a[tail].len + 1) tail = q;
 			else {
 				a[nq = ++tot] = a[q];
 				a[nq].len = a[tail].len + 1;
@@ -44,7 +43,10 @@ struct Generalized_Suffix_Automation {
 		} else {
 			a[np = ++tot].len = a[tail].len + 1;
 			for (p = tail; p && !a[p].son[k]; p = a[p].pre) a[p].son[k] = np;
-			if (!a[p].son[k]) a[p].son[k] = np;
+			if (!a[p].son[k]) {
+				a[p].son[k] = np;
+				a[np].pre = p;
+			}
 			else {
 				if (a[q = a[p].son[k]].len == a[p].len + 1) a[np].pre = q;
 				else {
